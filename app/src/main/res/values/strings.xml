@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Weatha</string>
+    <string name="app_description">Weatha an Weather App</string>
+    <string name="know_weather">Know today\'s changes</string>
+    <string name="humidity">Humidity</string>
+    <string name="pressure">Pressure</string>
+    <string name="wind">Wind</string>
+    <string name="min_temp">Min Temp</string>
+    <string name="max_temp">Max Temp</string>
+    <string name="humidity_value">%d\%%</string>
+    <string name="city_country_value">%s, %s</string>
+
+    <string name="wind_speed">Wind Speed</string>
+    <string name="wind_speed_value">%d km/h</string>
+    <string name="wind_degree">Wind Degree</string>
+    <string name="wind_gust">Wind Gust</string>
+
+</resources>
