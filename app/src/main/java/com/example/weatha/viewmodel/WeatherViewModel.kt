@@ -25,7 +25,7 @@ class WeatherViewModel(private val repo: WeatherRepository) : ViewModel() {
         return liveData!!
     }
 
-    private fun startWork() {
+  /*  private fun startWork() {
         val constraints = Constraints.Builder()
             .setRequiredNetworkType(NetworkType.CONNECTED)
             .build()
@@ -34,5 +34,5 @@ class WeatherViewModel(private val repo: WeatherRepository) : ViewModel() {
             .build()
         val workManager = WorkManager.getInstance(context)
         workManager.enqueuePeriodicWork(work)
-    }
+    }*/
 }
