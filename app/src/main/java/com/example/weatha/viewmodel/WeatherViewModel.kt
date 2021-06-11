@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.work.Constraints
 import androidx.work.NetworkType
-import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import com.example.weatha.model.network.responses.WeatherResponse
 import com.example.weatha.model.repo.WeatherRepository
@@ -20,19 +20,24 @@ class WeatherViewModel(private val repo: WeatherRepository) : ViewModel() {
             val res = repo.getWeatherInfo(id, appId)
             liveData = MutableLiveData()
             liveData!!.postValue(res)
-            //startWork()
+            startWork()
         }
         return liveData!!
     }
 
-  /*  private fun startWork() {
+    private fun startWork() {
         val constraints = Constraints.Builder()
+            .setRequiredNetworkType(NetworkType.UNMETERED)
             .setRequiredNetworkType(NetworkType.CONNECTED)
             .build()
-        val work = PeriodicWorkRequestBuilder<RefreshDataWorker>(2, TimeUnit.HOURS)
+
+        val work = OneTimeWorkRequestBuilder<RefreshDataWorker>()
             .setConstraints(constraints)
+            .setInitialDelay(15, TimeUnit.MINUTES)
             .build()
-        val workManager = WorkManager.getInstance(context)
-        workManager.enqueuePeriodicWork(work)
-    }*/
+
+        WorkManager.getInstance().enqueue(
+            work
+        )
+    }
 }

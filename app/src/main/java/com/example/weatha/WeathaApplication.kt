@@ -24,7 +24,6 @@ class WeathaApplication : Application(), KodeinAware {
         bind() from singleton { NetworkConnectionInterceptor(instance()) }
         bind() from singleton { MyApi(instance()) }
         bind() from singleton { WeatherRepository(instance(), instance()) }
-        bind() from provider { RefreshDataWorker(instance(), instance(), instance()) }
         bind() from provider { WeatherViewModel(instance()) }
         bind() from provider { WeatherViewModelFactory(instance()) }
     }

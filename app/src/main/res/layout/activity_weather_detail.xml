@@ -5,7 +5,7 @@
 
     <data>
 
-        <import type="com.example.weatha.util.ViewUtilsKt" />
+        <import type="com.example.weatha.util.Utils" />
 
         <variable
             name="response"
@@ -60,7 +60,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="@{ViewUtilsKt.getDateFromUnixTime(response.dt)}"
+                    android:text="@{Utils.getDateFromUnixTime(response.dt)}"
                     android:textColor="@color/white"
                     android:textSize="19sp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -71,26 +71,26 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
                     android:src="@drawable/cloudy"
                     app:layout_constraintBottom_toTopOf="@+id/tvClimateDegree"
                     app:layout_constraintEnd_toStartOf="@+id/tvClimateDegree"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvClimateDegree"
-                    app:layout_constraintTop_toTopOf="@+id/tvClimateDegree" />
+                    app:layout_constraintTop_toBottomOf="@+id/tvTime" />
 
                 <TextView
                     android:id="@+id/tvClimateDegree"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-condensed-medium"
-                    android:text="@{ViewUtilsKt.getCelsiusFromKelvin(response.main.temp)}"
+                    android:text="@{Utils.getCelsiusFromKelvin(response.main.temp)}"
                     android:textColor="@color/white"
-                    android:textSize="85sp"
+                    android:textSize="75sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="TEST" />
+                    tools:text="Test" />
 
                 <TextView
                     android:id="@+id/tvClimateName"
@@ -133,7 +133,7 @@
                     android:layout_marginStart="16dp"
                     android:fontFamily="sans-serif-condensed"
                     android:src="@mipmap/ic_launcher"
-                    android:text="@{ViewUtilsKt.getTimeFromUnixTime(response.sys.sunrise)}"
+                    android:text="@{Utils.getTimeFromUnixTime(response.sys.sunrise)}"
                     android:textColor="@color/white"
                     app:layout_constraintBottom_toTopOf="@+id/ivSunRise"
                     app:layout_constraintEnd_toEndOf="@+id/ivSunSet"
@@ -157,7 +157,7 @@
                     android:layout_marginEnd="16dp"
                     android:fontFamily="sans-serif-condensed"
                     android:src="@mipmap/ic_launcher"
-                    android:text="@{ViewUtilsKt.getTimeFromUnixTime(response.sys.sunset)}"
+                    android:text="@{Utils.getTimeFromUnixTime(response.sys.sunset)}"
                     android:textColor="@color/white"
                     app:layout_constraintBottom_toTopOf="@+id/ivSunSet"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -186,7 +186,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
             android:fontFamily="sans-serif-condensed-medium"
-            android:text="@{ViewUtilsKt.getCelsiusFromKelvin(response.main.temp_min)}"
+            android:text="@{Utils.getCelsiusFromKelvin(response.main.temp_min)}"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
@@ -210,7 +210,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
             android:fontFamily="sans-serif-condensed-medium"
-            android:text="@{ViewUtilsKt.getCelsiusFromKelvin(response.main.temp_max)}"
+            android:text="@{Utils.getCelsiusFromKelvin(response.main.temp_max)}"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvMinTempValue" />
@@ -290,7 +290,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="32dp"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:text="@{ViewUtilsKt.getWindSpeedByKPHr(context,response.wind.speed)}"
+                android:text="@{Utils.getWindSpeedByKPHr(context,response.wind.speed)}"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

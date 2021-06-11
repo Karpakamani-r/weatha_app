@@ -11,7 +11,7 @@
     <string name="city_country_value">%s, %s</string>
 
     <string name="wind_speed">Wind Speed</string>
-    <string name="wind_speed_value">%d km/h</string>
+    <string name="wind_speed_value">%.1f km/h</string>
     <string name="wind_degree">Wind Degree</string>
     <string name="wind_gust">Wind Gust</string>
 
