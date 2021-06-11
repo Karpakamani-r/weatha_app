@@ -13,6 +13,13 @@ class WeatherRepository(
     private val api: MyApi, private val context: Context
 ) : SafeApiRequest() {
 
+    /**
+     * Getting Weather details
+     * First checking in local file, If we have data in Local
+     * Returning local value otherwise getting from remote server
+     * @param id - ID
+     * @param appId -App ID
+     */
     suspend fun getWeatherInfo(id: String, appId: String): WeatherResponse {
         var weatherResponse = getWeatherFromLocal()
         if (weatherResponse == null) {
@@ -21,6 +28,12 @@ class WeatherRepository(
         return weatherResponse
     }
 
+    /**
+     * Getting data from Remote Server
+     * @param id ID
+     * @param appId App id
+     * @return weatherResponse
+     */
     suspend fun updateAndGetResponse(id: String, appId: String): WeatherResponse {
         val weatherResponse = apiRequest {
             api.fetchWeather(id, appId)
@@ -29,6 +42,10 @@ class WeatherRepository(
         return weatherResponse
     }
 
+    /**
+     * Retrying data from local json file
+     * @return WeatherResponse
+     */
     private fun getWeatherFromLocal(): WeatherResponse? {
         return try {
             val jsonFile = File(context.cacheDir, "Weather.json").readText(Charsets.UTF_8)
@@ -40,6 +57,10 @@ class WeatherRepository(
 
     }
 
+    /**
+     *Saving response data as string in local json file
+     * @param weatherResponse Response
+     */
     private fun saveLocally(weatherResponse: WeatherResponse) {
         val file = File(context.cacheDir, "Weather.json")
         file.deleteOnExit()

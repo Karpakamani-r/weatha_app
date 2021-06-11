@@ -19,4 +19,41 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorOnPrimary</item>
     </style>
 
+    <style name="match" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="match_wrap" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="wrap" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="text_view_match" parent="match">
+        <item name="android:textColor">@color/white</item>
+        <item name="fontFamily">sans-serif-condensed-medium</item>
+    </style>
+
+    <style name="text_view_wrap" parent="wrap">
+        <item name="android:textColor">@color/gray</item>
+        <item name="fontFamily">sans-serif-condensed</item>
+        <item name="android:textSize">19sp</item>
+    </style>
+
+    <style name="text_view_wrap_medium" parent="wrap">
+        <item name="android:textColor">@color/gray</item>
+        <item name="fontFamily">sans-serif-condensed-medium</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="text_view_match_wrap" parent="match_wrap">
+        <item name="android:textColor">@color/white</item>
+        <item name="fontFamily">sans-serif-condensed-medium</item>
+    </style>
+
 </resources>

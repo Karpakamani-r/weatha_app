@@ -28,11 +28,14 @@ class WeatherDetailActivity() : AppCompatActivity(), KodeinAware {
         val binding = ActivityWeatherDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //Creating Instance for view model
         viewModel = ViewModelProvider(this, factory).get(WeatherViewModel::class.java)
 
         Coroutines.main {
             try {
+                //Getting data from API
                 val res = viewModel.fetchWeather(BuildConfig.Id, BuildConfig.AppId)
+                //Updating data in view by using data binding
                 binding.response = res.value
             } catch (e: ApiException) {
                 e.printStackTrace()

@@ -15,6 +15,11 @@ import java.util.concurrent.TimeUnit
 
 class WeatherViewModel(private val repo: WeatherRepository) : ViewModel() {
     var liveData: MutableLiveData<WeatherResponse>? = null
+
+    /**
+     *
+     *Connecting repo to fetch latest weather information
+     */
     suspend fun fetchWeather(id: String, appId: String): MutableLiveData<WeatherResponse> {
         withContext(Dispatchers.IO) {
             val res = repo.getWeatherInfo(id, appId)
@@ -25,6 +30,9 @@ class WeatherViewModel(private val repo: WeatherRepository) : ViewModel() {
         return liveData!!
     }
 
+    /**
+     * Starting Refresh data sync
+     */
     private fun startWork() {
         val constraints = Constraints.Builder()
             .setRequiredNetworkType(NetworkType.UNMETERED)
